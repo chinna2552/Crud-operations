@@ -1,0 +1,52 @@
+<div class="container mt-4">
+  <div class="card">
+    <h1>Student Registration</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [formControl]="name" class="form-control" name="name" placeholder="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" [formControl]="email" class="form-control" name="email" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [formControl]="password" class="form-control" id="password" placeholder="password">
+      </div>
+      <button type="submit" (click)="save()"  class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="container mt-4">
+  
+
+  <h1>Student Table</h1>
+  <table class="table">
+      <thead>
+          
+          <tr>
+              <th scope="col">name</th>
+              <th scope="col">email</th>
+              <th scope="col">password</th>
+              <th scope="col">option</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let StudentItem of StudentArray">
+              <td>{{ StudentItem.name }}</td>
+              <td>{{ StudentItem.email }}</td>
+              <td>{{ StudentItem.password }}</td>
+              <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>
+                  <button type="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>
+
+              </td>
+
+          </tr>
+
+      </tbody>
+  </table>
+</div>

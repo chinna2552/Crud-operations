@@ -1,0 +1,129 @@
+<mat-toolbar color="primary">
+  <div style="display: flex; align-items: center;">
+    <button mat-icon-button class="bigger-star" (click)="nav.toggle()">
+      <mat-icon>star</mat-icon>
+    </button>
+    <div class="logo" style="font-size: 34px;">CODETOK<span style="font-size: 10px;">.com</span></div>
+  </div>
+
+
+
+</mat-toolbar>
+
+
+<mat-sidenav-container class=" sidenav-wrapper">
+  <mat-sidenav opened #nav mode="side" style="width: 300px;">
+    <div style="text-align: center; margin-top: 20px;">
+      <img src="https://e0.pxfuel.com/wallpapers/355/72/desktop-wallpaper-cartoon-boy-iphone-cute-cartoon-boys.jpg"
+        alt="cortoon image" style="width: 100px; height: 100px; border-radius: 50%;">
+    </div>
+    <a [routerLink]="['Dashboard']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>dashboard</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Dashboard</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['Material Widget']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>grid_view</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Material Widget</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['/']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Forms</span>
+      <button mat-icon-button (click)="toggleFormButton()">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <div *ngIf="showFormsSubMenu">
+      <a color="primary" style="display: flex; align-items: center;" class="cursor-pointer"
+        (click)="toggleRegistrationFormButton()">
+        <span style="flex: 1; text-align: center;">Registeration Forms</span>
+      </a>
+      <a color="primary" style="display: flex; align-items: center;" class="cursor-pointer"
+        (click)="toggleLoginButton()">
+        <span style="flex: 1; text-align: center;">Customer Forms</span>
+      </a>
+
+    </div>
+    
+
+    <a [routerLink]="['Tables']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>list</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Tables</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['Charts']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>pie_chart</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Charts</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['Maps']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>map</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Maps</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['/pages']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>auto_awesome_motion</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Pages</span>
+      <button mat-icon-button (click)="toggleLoginButton()">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    
+
+
+    <a [routerLink]="['Editor']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>auto_awesome_motion</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Editor</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+    <a [routerLink]="['Featured']" color="primary" style="display: flex; align-items: center;">
+      <button mat-icon-button>
+        <mat-icon>star</mat-icon>
+      </button>
+      <span style="flex: 1; text-align: center;">Featured</span>
+      <button mat-icon-button>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </a>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div *ngIf="showRegistrationForm">
+      <app-registration-form></app-registration-form>
+    </div>
+    <div *ngIf="showPages">
+      <app-pages></app-pages>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
